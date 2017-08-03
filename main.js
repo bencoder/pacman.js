@@ -51,7 +51,7 @@ function game(canvasId) {
       '####.#.#####.#.####',
       '#........#........#',
       '#.##.###.#.###.##.#',
-      '#..#...........#..#',
+      '#..#..... .....#..#',
       '##.#.#.#####.#.#.##',
       '#....#...#...#....#',
       '#.######.#.######.#',
@@ -263,11 +263,13 @@ function game(canvasId) {
     map.draw();
     player.draw();
     ghosts.map(g => g.draw());
+    context.textAlign="center";
+    context.fillStyle = 'white';
+    context.font = "70px Arial";
     if (finishGameText !== '') {
-      context.fillStyle = 'white';
-      context.font = "70px Arial";
-      context.fillText(finishGameText,300,500);
+      context.fillText(finishGameText,500,500);
     }
+    context.fillText(score, 500, 100);
     window.requestAnimationFrame(tick);
   }
   window.requestAnimationFrame(tick);
